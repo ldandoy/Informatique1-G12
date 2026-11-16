@@ -21,18 +21,22 @@ float deposer(float solde, float montant) {
 	return montant+solde;
 }
 
-float retirer(float solde, float montant) {
-	if (montant <= 0) {
+int retirer(float *solde, float *montant) {
+	int successed = 0;
+	if (*montant <= 0) {
 		printf("Montant invalide\n");
-		return solde;
+		return successed;
 	}
 
-	if (montant > solde) {
+	if (*montant > *solde) {
 		printf("Solde insuffisant\n");
-		return solde;
+		return successed;
 	}
 
-	return solde - montant;
+	successed = 1;
+	*solde = *solde - *montant;
+
+	return successed;
 }
 
 int main(void) {
@@ -58,7 +62,11 @@ int main(void) {
 			case 3:
 				printf("Combien voulez-vous retirer ?");
 				scanf("%f", &montant);
-				solde = retirer(solde, montant);
+				if (retirer(&solde, &montant) == 0) {
+					printf("Retrait refusé");
+				} else {
+					printf("Retrait effectué");
+				}
 				afficherSolde(solde);
 				break;
 			default:

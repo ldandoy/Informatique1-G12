@@ -2,7 +2,8 @@
 
 Exercice 6 : qu’affiche ce programme ?
 
-Sans l’exécuter, donner ce qu’affiche ce programme. Faire un schéma des cases mémoire et des flèches à chaque ligne.
+Sans l’exécuter, donner ce qu’affiche ce programme. Faire un schéma des cases mémoire et des 
+flèches à chaque ligne.
 
 #include <stdio.h>
 
@@ -22,5 +23,26 @@ int main()
 
     return 0;
 }
+
+
+         |   u   |   v   |  *p    |  *q   |
+-------------------------------------------
+Ligne 12 |   3   |   8   | - | -  | - | - |
+-------------------------------------------
+Ligne 13 |   3   |   8   | 3 |->u | - | - |
+-------------------------------------------
+Ligne 14 |   3   |   8   |   |    | 8 |->v|
+-------------------------------------------
+Ligne 16 |   5   |   8   | 5 |->u | 8 |->v|
+-------------------------------------------
+Ligne 17 |   5   |   8   | 5 |->u | 5 |->u|
+-------------------------------------------
+Ligne 18 |  50   |   8   |50 |->u |50 |->u|
+-------------------------------------------
+Ligne 19 |  50   |   8   | 8 |->v | 50|->u|
+-------------------------------------------
+Ligne 20 |  50   |   51  | 51|->v | 50|->u|
+-------------------------------------------
+
 
 */
